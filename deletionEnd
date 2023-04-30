@@ -30,9 +30,9 @@ public class deletionEnd {
     	 }
     	 Node preNode=head;
     	 Node currNode=head.next;
-    	 while(currNode!=null) {
+    	 while(currNode.next!=null) {
     		 currNode=currNode.next;
-    		 preNode=currNode;
+    		 preNode=preNode.next;
     	 }
     	 preNode.next=null;
      }
@@ -60,3 +60,4 @@ public class deletionEnd {
 	}
     
 }
+

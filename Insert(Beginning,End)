@@ -1,0 +1,55 @@
+package LinkedList;
+
+public class LLCRUD<T> {
+	Node<T> start;
+
+    void insertAtBeg(Node<T> node) {
+        // Linked List is empty
+        if(start == null) {
+            start = node;
+            return;
+        }
+        node.next = start;
+        start = node;
+    }
+
+    void insertAtEnd(Node<T> node) {
+        // If linked list is empty
+        if(start == null) {
+            start = node;
+            return;
+        }
+        // if linked list has only one node
+        if(start.next == null) {
+            start.next = node;
+            return;
+        }
+        Node<T> currNode = start;
+        while(currNode.next != null) {
+            currNode = currNode.next;
+        }
+        currNode.next = node;
+
+    }
+
+    
+
+    void print() {
+        Node<T> currNode = start;
+        while(currNode != null) {
+            System.out.print(currNode.data+"->");
+            currNode = currNode.next;
+        }
+        System.out.println("Null");
+    }
+
+    public static void main(String[] args) {
+        LLCRUD<Integer> obj = new LLCRUD<>();
+        obj.insertAtBeg(new Node<>(10));
+        obj.insertAtBeg(new Node<>(20));
+        obj.insertAtBeg(new Node<>(30));
+        obj.insertAtBeg(new Node<>(40));
+        obj.insertAtEnd(new Node<>(5));
+        obj.print();
+    }
+}
